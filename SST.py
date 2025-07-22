@@ -167,8 +167,6 @@ print(Today_signal)
 
 
 
-!pip install openpyxl
-
 !pip install gspread gspread_dataframe oauth2client
 
 
