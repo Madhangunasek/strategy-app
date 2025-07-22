@@ -1,1 +1,15 @@
-{"nbformat":4,"nbformat_minor":0,"metadata":{"colab":{"provenance":[],"mount_file_id":"1Fluhjskc1K5EWZk0G7qP8T6mjwpxtsZu","authorship_tag":"ABX9TyPk4e8IoyEc+lL3rTEiEt6m"},"kernelspec":{"name":"python3","display_name":"Python 3"},"language_info":{"name":"python"}},"cells":[{"cell_type":"code","execution_count":30,"metadata":{"colab":{"base_uri":"https://localhost:8080/"},"id":"LyXgkfglrONo","executionInfo":{"status":"ok","timestamp":1753184961874,"user_tz":-330,"elapsed":89016,"user":{"displayName":"Madhankumar G","userId":"02988281276476120826"}},"outputId":"a1ef535b-6a09-4a22-da61-ab9f9f5ce319"},"outputs":[{"output_type":"stream","name":"stdout","text":["✅ Copy this webhook URL for Google Sheets: NgrokTunnel: \"https://8f635950e077.ngrok-free.app\" -> \"http://localhost:5000\"/run-strategy\n"," * Serving Flask app '__main__'\n"," * Debug mode: off\n"]},{"output_type":"stream","name":"stderr","text":["INFO:werkzeug:\u001b[31m\u001b[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.\u001b[0m\n"," * Running on http://127.0.0.1:5000\n","INFO:werkzeug:\u001b[33mPress CTRL+C to quit\u001b[0m\n"]}],"source":["from flask import Flask, request\n","import traceback\n","\n","app = Flask(__name__)\n","\n","@app.route('/run-strategy', methods=['POST'])\n","def run_strategy():\n","    try:\n","        exec(open(\"SST.py\").read())\n","        return \"✅ Strategy executed\", 200\n","    except Exception as e:\n","        return f\"❌ Error:\\n{traceback.format_exc()}\", 500\n","\n","if __name__ == '__main__':\n","    app.run()\n"]}]}
+from flask import Flask, request
+import traceback
+
+app = Flask(__name__)
+
+@app.route('/run-strategy', methods=['POST'])
+def run_strategy():
+    try:
+        exec(open("SST.py").read())
+        return "✅ Strategy executed", 200
+    except Exception as e:
+        return f"❌ Error:\n{traceback.format_exc()}", 500
+
+if __name__ == '__main__':
+    app.run()
