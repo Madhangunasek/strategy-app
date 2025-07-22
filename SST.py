@@ -166,11 +166,6 @@ Today_signal = today_signals[
 print(Today_signal)
 
 
-
-!pip install gspread gspread_dataframe oauth2client
-
-
-
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from gspread_dataframe import set_with_dataframe
