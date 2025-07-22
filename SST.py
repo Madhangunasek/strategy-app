@@ -11,7 +11,7 @@ import yfinance as yf
 import pandas as pd
 
 # Step 1: Load tickers from CSV file (must have a column named 'Ticker')
-tickers_df = pd.read_csv("/content/drive/MyDrive/Stock Signal System/Stock_data.csv")  # Make sure stocks.csv exists in the same folder
+tickers_df = pd.read_csv("Stock_data.csv")  # Make sure stocks.csv exists in the same folder
 tickers = tickers_df['Instrument'].tolist()
 
 all_results = []
@@ -180,7 +180,7 @@ import pandas as pd
 
 # Set up Google Sheets authentication
 scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("/content/drive/MyDrive/Stock Signal System/service_account.json", scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", scope)
 client = gspread.authorize(creds)
 
 # Open spreadsheet
